@@ -1,0 +1,213 @@
+package classesGraficas;
+
+import classesUtilit.*;
+
+public class jPainelLogin extends javax.swing.JPanel {
+    //Atributos IN
+    private String stringLogin;
+    private char[] arraySenha;
+    //Getters
+    public String getStringLogin(){ return this.stringLogin; }
+    public char[] getArraySenha(){ return this.arraySenha; }
+    //Setters
+    private void setStringLogin(String stringLogin){
+        this.stringLogin = stringLogin;
+    }
+    private void setArraySenha(char[] arraySenha){
+        this.arraySenha = arraySenha;
+    }
+    public jPainelLogin() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPainelImagem = new javax.swing.JPanel();
+        jPainelAreaLogin = new javax.swing.JPanel();
+        jPainelAreaLoginCampos = new javax.swing.JPanel();
+        lLogin = new javax.swing.JLabel();
+        lSenha = new javax.swing.JLabel();
+        Login = new javax.swing.JTextField();
+        Senha = new javax.swing.JPasswordField();
+        jButtonConfirmar = new javax.swing.JButton();
+        lAcesso = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(153, 153, 255));
+        setMaximumSize(new java.awt.Dimension(1200, 650));
+        setMinimumSize(new java.awt.Dimension(1200, 650));
+
+        jPainelImagem.setBackground(new java.awt.Color(255, 255, 255));
+        jPainelImagem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255), 2));
+
+        javax.swing.GroupLayout jPainelImagemLayout = new javax.swing.GroupLayout(jPainelImagem);
+        jPainelImagem.setLayout(jPainelImagemLayout);
+        jPainelImagemLayout.setHorizontalGroup(
+            jPainelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 766, Short.MAX_VALUE)
+        );
+        jPainelImagemLayout.setVerticalGroup(
+            jPainelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPainelAreaLogin.setBackground(new java.awt.Color(0, 0, 255));
+        jPainelAreaLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255), 2));
+
+        jPainelAreaLoginCampos.setBackground(new java.awt.Color(230, 230, 230));
+
+        lLogin.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lLogin.setForeground(new java.awt.Color(20, 0, 0));
+        lLogin.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lLogin.setText("LOGIN");
+
+        lSenha.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lSenha.setForeground(new java.awt.Color(20, 0, 0));
+        lSenha.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lSenha.setText("SENHA");
+
+        Login.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+
+        Senha.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+
+        jButtonConfirmar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonConfirmar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButtonConfirmar.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonConfirmar.setText("Confirmar");
+        jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfirmarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPainelAreaLoginCamposLayout = new javax.swing.GroupLayout(jPainelAreaLoginCampos);
+        jPainelAreaLoginCampos.setLayout(jPainelAreaLoginCamposLayout);
+        jPainelAreaLoginCamposLayout.setHorizontalGroup(
+            jPainelAreaLoginCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPainelAreaLoginCamposLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPainelAreaLoginCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPainelAreaLoginCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPainelAreaLoginCamposLayout.createSequentialGroup()
+                            .addComponent(lSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(Senha))
+                        .addGroup(jPainelAreaLoginCamposLayout.createSequentialGroup()
+                            .addComponent(lLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17))
+        );
+        jPainelAreaLoginCamposLayout.setVerticalGroup(
+            jPainelAreaLoginCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPainelAreaLoginCamposLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPainelAreaLoginCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPainelAreaLoginCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+        );
+
+        lAcesso.setFont(new java.awt.Font("Dialog", 1, 26)); // NOI18N
+        lAcesso.setForeground(new java.awt.Color(230, 230, 230));
+        lAcesso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lAcesso.setText("ACESSO");
+
+        javax.swing.GroupLayout jPainelAreaLoginLayout = new javax.swing.GroupLayout(jPainelAreaLogin);
+        jPainelAreaLogin.setLayout(jPainelAreaLoginLayout);
+        jPainelAreaLoginLayout.setHorizontalGroup(
+            jPainelAreaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPainelAreaLoginCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPainelAreaLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lAcesso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPainelAreaLoginLayout.setVerticalGroup(
+            jPainelAreaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPainelAreaLoginLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lAcesso)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPainelAreaLoginCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPainelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPainelAreaLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPainelImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPainelAreaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 358, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+        //Obter Login e Senha
+        String auxLogin = Login.getText();
+        char[] auxSenha = Senha.getPassword();
+        //Crítica de dados
+        boolean validade = true;
+        if(auxLogin == null || auxLogin.equals("")) validade = false;
+        if(auxSenha == null) validade = false;
+        if(validade){
+            //Atribuição as variáveis
+            setStringLogin(auxLogin);
+            setArraySenha(auxSenha);
+            //Verifica tipo de conta
+            int qualTipoDeConta = 0;//Contas.retornaTipoDeConta(auxLogin, auxSenha);
+            //Switch que muda o painel em função do tipo de conta
+            switch (qualTipoDeConta){
+                case 0:
+                    FramePrincipal.jPainelPrincipal.removeAll();
+                    FramePrincipal.jPainelPrincipal.add(new jPainelDono(getStringLogin(), getArraySenha()));
+                    FramePrincipal.jPainelPrincipal.repaint();
+                    FramePrincipal.jPainelPrincipal.revalidate();
+                    break;
+                case 1:
+                    FramePrincipal.jPainelPrincipal.removeAll();
+                    FramePrincipal.jPainelPrincipal.add(new jPainelFuncionario(getStringLogin(), getArraySenha()));
+                    FramePrincipal.jPainelPrincipal.repaint();
+                    FramePrincipal.jPainelPrincipal.revalidate();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }//GEN-LAST:event_jButtonConfirmarActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Login;
+    private javax.swing.JPasswordField Senha;
+    private javax.swing.JButton jButtonConfirmar;
+    private javax.swing.JPanel jPainelAreaLogin;
+    private javax.swing.JPanel jPainelAreaLoginCampos;
+    private javax.swing.JPanel jPainelImagem;
+    private javax.swing.JLabel lAcesso;
+    private javax.swing.JLabel lLogin;
+    private javax.swing.JLabel lSenha;
+    // End of variables declaration//GEN-END:variables
+}
