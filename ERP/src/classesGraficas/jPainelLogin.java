@@ -1,6 +1,8 @@
 package classesGraficas;
 
 import classesUtilit.*;
+import java.util.ArrayList;
+import java.util.List;
 import model.bean.Conta;
 import model.dao.ContaDAO;
 
@@ -332,6 +334,15 @@ public class jPainelLogin extends javax.swing.JPanel {
         }
         if(validade){
             //Verifica se existe uma conta com esse Login
+            List<Conta> contas = new ArrayList<>();
+            ContaDAO dao = new ContaDAO();
+            contas = dao.read();
+            if(contas != null) for(Conta c : contas){
+                if(auxLogin.equals(c.getLogin())){
+                    validade = false;
+                    break;
+                }
+            }
         }
         if(validade){
             Conta conta = new Conta();

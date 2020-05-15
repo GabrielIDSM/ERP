@@ -1,5 +1,10 @@
 package classesUtilit;
 
+import java.util.ArrayList;
+import java.util.List;
+import model.bean.Conta;
+import model.dao.ContaDAO;
+
 public abstract class Contas {
     //0 = Dono da empresa /1 = Funcionário / -1 = Erro
     public static int retornaTipoDeConta(String login, char[] arraySenha){
@@ -14,12 +19,19 @@ public abstract class Contas {
     }
     
     private static boolean verificaContaDono(String login, String senha){
-        
-        return false;
+        return login.equals("GabrielInacio") && senha.equals("UGR8YPLH7G");
     }
     
     private static boolean verificaContaFuncionario(String login, String senha){
-        
+        List<Conta> contas = new ArrayList<>();
+        ContaDAO dao = new ContaDAO();
+        contas = dao.read();
+        if (contas != null)
+            for (Conta c : contas) {
+                if (login.equals(c.getLogin()) && senha.equals(c.getSenha())) {
+                    return true;
+                }
+            }
         return false;
     }
 }
