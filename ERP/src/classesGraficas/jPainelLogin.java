@@ -1,6 +1,8 @@
 package classesGraficas;
 
 import classesUtilit.*;
+import model.bean.Conta;
+import model.dao.ContaDAO;
 
 public class jPainelLogin extends javax.swing.JPanel {
     //Atributos IN
@@ -177,7 +179,7 @@ public class jPainelLogin extends javax.swing.JPanel {
             setStringLogin(auxLogin);
             setArraySenha(auxSenha);
             //Verifica tipo de conta
-            int qualTipoDeConta = 0;//Contas.retornaTipoDeConta(auxLogin, auxSenha);
+            int qualTipoDeConta = Contas.retornaTipoDeConta(auxLogin, auxSenha);
             //Switch que muda o painel em função do tipo de conta
             switch (qualTipoDeConta){
                 case 0:

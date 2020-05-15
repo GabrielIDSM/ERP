@@ -2,12 +2,12 @@ package conexao;
 
 import java.sql.*;
 
-public class ConnectionFactory {
+public abstract class ConnectionFactory {
     //Atributos
-    final private String DRIVER = "com.mysql.jdbc.Driver";
-    final private String URL = "jdbc:mysql://localhost:3306/ERP";
-    final private String USER = "root";
-    final private String PASS = "";
+    final static private String DRIVER = "com.mysql.jdbc.Driver";
+    final static private String URL = "jdbc:mysql://localhost:3306/ERP";
+    final static private String USER = "root";
+    final static private String PASS = "LHUGR8YP";
     //Getters
     public String getDRIVE() {
         return DRIVER;
@@ -21,7 +21,7 @@ public class ConnectionFactory {
     public String getPASS() {
         return PASS;
     }
-    public Connection getConnection(){
+    public static Connection getConnection(){
         try {
             Class.forName(DRIVER);
             return DriverManager.getConnection(URL, USER, PASS);
