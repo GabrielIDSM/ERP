@@ -25,4 +25,16 @@ public abstract class mensagens {
                 "Operação não realizada", 
                 JOptionPane.ERROR_MESSAGE);
     }
+    public static void exibeInformacoesCad(){
+        String mensagem = "";
+        mensagem += "Login e Senha devem obedecer regras: \n\n";
+        mensagem += "1. Escolha um Login entre 6 a 20 caracteres\n";
+        mensagem += "2. Escolha uma Senha entre 6 a 20 caracteres\n";
+        mensagem += "3. Login e Senha só podem conter letras e números\n";
+        mensagem += "4. O Sistema não permite logins iguais";
+        JOptionPane.showMessageDialog(null, 
+                mensagem, 
+                "Cadastro", 
+                JOptionPane.INFORMATION_MESSAGE);
+    }
 }

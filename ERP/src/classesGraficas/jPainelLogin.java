@@ -10,9 +10,13 @@ public class jPainelLogin extends javax.swing.JPanel {
     //Atributos IN
     private String stringLogin;
     private char[] arraySenha;
+    private boolean primeiroClique = true;
     //Getters
     public String getStringLogin(){ return this.stringLogin; }
     public char[] getArraySenha(){ return this.arraySenha; }
+    public boolean getPrimeiroClique() {
+        return primeiroClique;
+    }
     //Setters
     private void setStringLogin(String stringLogin){
         this.stringLogin = stringLogin;
@@ -20,6 +24,10 @@ public class jPainelLogin extends javax.swing.JPanel {
     private void setArraySenha(char[] arraySenha){
         this.arraySenha = arraySenha;
     }
+    public void setPrimeiroClique(boolean primeiroClique) {
+        this.primeiroClique = primeiroClique;
+    }
+    //Construtor
     public jPainelLogin() {
         initComponents();
         lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagem.jpg")));
@@ -46,6 +54,7 @@ public class jPainelLogin extends javax.swing.JPanel {
         Login1 = new javax.swing.JTextField();
         Senha1 = new javax.swing.JPasswordField();
         jButtonCad = new javax.swing.JButton();
+        jButtonDuvidasCad = new javax.swing.JButton();
         lCadastro = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 255));
@@ -173,6 +182,11 @@ public class jPainelLogin extends javax.swing.JPanel {
         lSenhaCad.setText("SENHA");
 
         Login1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        Login1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Login1MouseClicked(evt);
+            }
+        });
 
         Senha1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
 
@@ -186,23 +200,35 @@ public class jPainelLogin extends javax.swing.JPanel {
             }
         });
 
+        jButtonDuvidasCad.setBackground(new java.awt.Color(153, 255, 153));
+        jButtonDuvidasCad.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButtonDuvidasCad.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonDuvidasCad.setText("?");
+        jButtonDuvidasCad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDuvidasCadActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPainelAreaCadCamposLayout = new javax.swing.GroupLayout(jPainelAreaCadCampos);
         jPainelAreaCadCampos.setLayout(jPainelAreaCadCamposLayout);
         jPainelAreaCadCamposLayout.setHorizontalGroup(
             jPainelAreaCadCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPainelAreaCadCamposLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(jPainelAreaCadCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPainelAreaCadCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPainelAreaCadCamposLayout.createSequentialGroup()
-                            .addComponent(lSenhaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(Senha1))
-                        .addGroup(jPainelAreaCadCamposLayout.createSequentialGroup()
-                            .addComponent(lLoginCad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(Login1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButtonCad, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPainelAreaCadCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPainelAreaCadCamposLayout.createSequentialGroup()
+                        .addComponent(lSenhaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Senha1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPainelAreaCadCamposLayout.createSequentialGroup()
+                        .addComponent(lLoginCad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Login1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPainelAreaCadCamposLayout.createSequentialGroup()
+                        .addComponent(jButtonDuvidasCad, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCad, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(17, 17, 17))
         );
         jPainelAreaCadCamposLayout.setVerticalGroup(
@@ -217,7 +243,9 @@ public class jPainelLogin extends javax.swing.JPanel {
                     .addComponent(lSenhaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Senha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButtonCad, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPainelAreaCadCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCad, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonDuvidasCad, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
 
@@ -361,6 +389,17 @@ public class jPainelLogin extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonCadActionPerformed
 
+    private void jButtonDuvidasCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDuvidasCadActionPerformed
+        mensagens.exibeInformacoesCad();
+    }//GEN-LAST:event_jButtonDuvidasCadActionPerformed
+
+    private void Login1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Login1MouseClicked
+        if(this.getPrimeiroClique()){
+            this.setPrimeiroClique(false);
+            mensagens.exibeInformacoesCad();
+        }
+    }//GEN-LAST:event_Login1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Login;
@@ -369,6 +408,7 @@ public class jPainelLogin extends javax.swing.JPanel {
     private javax.swing.JPasswordField Senha1;
     private javax.swing.JButton jButtonCad;
     private javax.swing.JButton jButtonConfirmar;
+    private javax.swing.JButton jButtonDuvidasCad;
     private javax.swing.JPanel jPainelAreaCad;
     private javax.swing.JPanel jPainelAreaCadCampos;
     private javax.swing.JPanel jPainelAreaLogin;
