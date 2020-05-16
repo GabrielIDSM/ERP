@@ -346,6 +346,7 @@ public class jPainelLogin extends javax.swing.JPanel {
         boolean validade = true;
         if(auxLogin == null || auxLogin.equals("")) validade = false;
         else if(auxSenha.equals("")) validade = false;
+        if(!validade) mensagens.exibeMensagemFracasso();
         //Verificar tamanho da senha e do login
         if(validade){
             char[] arrayLogin = auxLogin.toCharArray();
@@ -355,12 +356,14 @@ public class jPainelLogin extends javax.swing.JPanel {
             for(int i = 0; i < arrayLogin.length; i++){
                 if(!Character.isDigit(arrayLogin[i]) && !Character.isLetter(arrayLogin[i])){
                     validade = false;
+                    mensagens.exibeMensagemFracasso("Caracteres inválidos foram inseridos");
                     break;
                 }
             }
             for(int i = 0; i < auxSenhaArray.length; i++){
                 if(!Character.isDigit(auxSenhaArray[i]) && !Character.isLetter(auxSenhaArray[i])){
                     validade = false;
+                    mensagens.exibeMensagemFracasso("Caracteres inválidos foram inseridos");
                     break;
                 }
             }
@@ -373,6 +376,7 @@ public class jPainelLogin extends javax.swing.JPanel {
             if(contas != null) for(Conta c : contas){
                 if(auxLogin.equals(c.getLogin())){
                     validade = false;
+                    mensagens.exibeMensagemFracasso("Login já registrado");
                     break;
                 }
             }
@@ -385,12 +389,14 @@ public class jPainelLogin extends javax.swing.JPanel {
             dao.create(conta);
             mensagens.exibeMensagemSucesso();
         }else{
-            mensagens.exibeMensagemFracasso();
+            Login1.setText("");
+            Senha1.setText("");
         }
     }//GEN-LAST:event_jButtonCadActionPerformed
 
     private void jButtonDuvidasCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDuvidasCadActionPerformed
         mensagens.exibeInformacoesCad();
+        this.setPrimeiroClique(false);
     }//GEN-LAST:event_jButtonDuvidasCadActionPerformed
 
     private void Login1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Login1MouseClicked
