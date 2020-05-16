@@ -22,6 +22,7 @@ public class jPainelLogin extends javax.swing.JPanel {
     }
     public jPainelLogin() {
         initComponents();
+        lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagem.jpg")));
     }
 
     @SuppressWarnings("unchecked")
@@ -29,6 +30,7 @@ public class jPainelLogin extends javax.swing.JPanel {
     private void initComponents() {
 
         jPainelImagem = new javax.swing.JPanel();
+        lImagem = new javax.swing.JLabel();
         jPainelAreaLogin = new javax.swing.JPanel();
         jPainelAreaLoginCampos = new javax.swing.JPanel();
         lLogin = new javax.swing.JLabel();
@@ -50,18 +52,21 @@ public class jPainelLogin extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(1200, 650));
         setMinimumSize(new java.awt.Dimension(1200, 650));
 
-        jPainelImagem.setBackground(new java.awt.Color(255, 255, 255));
+        jPainelImagem.setBackground(new java.awt.Color(0, 0, 255));
         jPainelImagem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255), 2));
+
+        lImagem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lImagem.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout jPainelImagemLayout = new javax.swing.GroupLayout(jPainelImagem);
         jPainelImagem.setLayout(jPainelImagemLayout);
         jPainelImagemLayout.setHorizontalGroup(
             jPainelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 766, Short.MAX_VALUE)
+            .addComponent(lImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
         );
         jPainelImagemLayout.setVerticalGroup(
             jPainelImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(lImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
         );
 
         jPainelAreaLogin.setBackground(new java.awt.Color(0, 0, 255));
@@ -371,6 +376,7 @@ public class jPainelLogin extends javax.swing.JPanel {
     private javax.swing.JPanel jPainelImagem;
     private javax.swing.JLabel lAcesso;
     private javax.swing.JLabel lCadastro;
+    private javax.swing.JLabel lImagem;
     private javax.swing.JLabel lLogin;
     private javax.swing.JLabel lLoginCad;
     private javax.swing.JLabel lSenha;
