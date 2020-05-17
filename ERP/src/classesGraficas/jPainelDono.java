@@ -12,22 +12,17 @@ public class jPainelDono extends javax.swing.JPanel {
 
         jPainelPrincipal = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(0, 0, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
         setMaximumSize(new java.awt.Dimension(1200, 650));
         setMinimumSize(new java.awt.Dimension(1200, 650));
 
         jPainelPrincipal.setBackground(new java.awt.Color(230, 230, 230));
-
-        javax.swing.GroupLayout jPainelPrincipalLayout = new javax.swing.GroupLayout(jPainelPrincipal);
-        jPainelPrincipal.setLayout(jPainelPrincipalLayout);
-        jPainelPrincipalLayout.setHorizontalGroup(
-            jPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1188, Short.MAX_VALUE)
-        );
-        jPainelPrincipalLayout.setVerticalGroup(
-            jPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 638, Short.MAX_VALUE)
-        );
+        jPainelPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        jPainelPrincipal.setMaximumSize(new java.awt.Dimension(1186, 636));
+        jPainelPrincipal.setMinimumSize(new java.awt.Dimension(1186, 636));
+        jPainelPrincipal.setPreferredSize(new java.awt.Dimension(1186, 636));
+        jPainelPrincipal.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -49,6 +44,6 @@ public class jPainelDono extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPainelPrincipal;
+    public static javax.swing.JPanel jPainelPrincipal;
     // End of variables declaration//GEN-END:variables
 }
