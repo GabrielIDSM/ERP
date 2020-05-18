@@ -4,6 +4,7 @@ public class jPainelDono extends javax.swing.JPanel {
 
     public jPainelDono(String login, char[] senhaArray) {
         initComponents();
+        jPainelInicioDono comp = new jPainelInicioDono(login);
     }
 
     @SuppressWarnings("unchecked")

@@ -4,6 +4,7 @@ public class jPainelFuncionario extends javax.swing.JPanel {
     
     public jPainelFuncionario(String login, char[] senhaArray) {
         initComponents();
+        jPainelInicioFuncionario comp = new jPainelInicioFuncionario(login);
     }
 
     @SuppressWarnings("unchecked")
