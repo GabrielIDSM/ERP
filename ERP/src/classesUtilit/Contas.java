@@ -34,4 +34,18 @@ public abstract class Contas {
             }
         return false;
     }
+    
+    public static boolean isVendedor(String login){
+        //Lista com os funcionários
+        List<Conta> contas = new ArrayList<>();
+        ContaDAO dao = new ContaDAO();
+        contas = dao.read();
+        //Verifica se o funcionarios é um vendedor
+        if (contas != null) for (Conta c : contas){
+            if(c.getLogin().equals(login)){
+                if(c.getFuncao() == 0) return true;
+            }
+        }
+        return false;
+    }
 }

@@ -15,9 +15,10 @@ public class ContaDAO {
         try {
             //Inserindo conteúdo no BD
             stmt = con.prepareStatement("INSERT INTO contas"
-                    + "(Login, Senha) VALUES (?,?)");
+                    + "(Login, Senha, Funcao) VALUES (?,?,?)");
             stmt.setString(1, conta.getLogin());
             stmt.setString(2, conta.getSenha());
+            stmt.setInt(3, conta.getFuncao());
             stmt.executeUpdate();
             System.out.println("Foi possível!");
         } catch (SQLException ex) {
@@ -41,6 +42,7 @@ public class ContaDAO {
                 Conta conta = new Conta();
                 conta.setLogin(res.getString("Login"));
                 conta.setSenha(res.getString("Senha"));
+                conta.setFuncao(res.getInt("Funcao"));
                 contas.add(conta);
             }
         } catch (SQLException ex) {
