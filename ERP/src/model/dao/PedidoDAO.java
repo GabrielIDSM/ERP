@@ -15,14 +15,13 @@ public class PedidoDAO {
         try {
             //Inserindo conteúdo no BD
             stmt = con.prepareStatement("INSERT INTO pedidos"
-                    + "(ID, Vendedor, Cliente, DataDeEntrega, Entregador, Valor, Estado) VALUES (?,?,?,?,?,?,?)");
-            stmt.setInt(1, pedido.getID());
-            stmt.setString(2, pedido.getVendedor());
-            stmt.setString(3, pedido.getCliente());
-            stmt.setString(4, pedido.getDataDeEntrega());
-            stmt.setString(5, pedido.getEntregador());
-            stmt.setFloat(6, pedido.getValor());
-            stmt.setString(7, pedido.getEstado());
+                    + "(Vendedor, Cliente, DataDeEntrega, Entregador, Valor, Estado) VALUES (?,?,?,?,?,?)");
+            stmt.setString(1, pedido.getVendedor());
+            stmt.setString(2, pedido.getCliente());
+            stmt.setString(3, pedido.getDataDeEntrega());
+            stmt.setString(4, pedido.getEntregador());
+            stmt.setFloat(5, pedido.getValor());
+            stmt.setString(6, pedido.getEstado());
             stmt.executeUpdate();
             System.out.println("Foi possível!");
         } catch (SQLException ex) {
