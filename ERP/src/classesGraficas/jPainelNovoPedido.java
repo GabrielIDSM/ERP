@@ -1,11 +1,8 @@
 package classesGraficas;
 
-import classesUtilit.ListaDePedidosTableModel;
-import java.util.List;
-import model.bean.Pedido;
-import model.dao.PedidoDAO;
 
-public class jPainelListaDePedidos extends javax.swing.JPanel {
+
+public class jPainelNovoPedido extends javax.swing.JPanel {
     //Atributos
     int tipoDeConta;
     String strlogin;
@@ -24,18 +21,8 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
         this.strlogin = strlogin;
     }
     //Construtor
-    public jPainelListaDePedidos(String strlogin, int tipoDeConta) {
-        setStrlogin(strlogin);
-        setTipoDeConta(tipoDeConta);
+    public jPainelNovoPedido(String strlogin, int tipoDeConta) {
         initComponents();
-        ListaDePedidosTableModel tableModel = new ListaDePedidosTableModel();
-        jTablePedidos.setModel(tableModel);
-        //Definindo tabela
-        PedidoDAO dao = new PedidoDAO();
-        List<Pedido> pedidos = dao.read();
-        if(pedidos != null) for(Pedido p: pedidos){
-            tableModel.addRow(p);
-        }
     }
 
     @SuppressWarnings("unchecked")
@@ -44,8 +31,6 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTablePedidos = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(230, 230, 230));
         setMaximumSize(new java.awt.Dimension(1186, 636));
@@ -82,55 +67,21 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        jTablePedidos.setBackground(new java.awt.Color(210, 210, 210));
-        jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Vendedor", "Cliente", "Data de Entrega", "Entregador", "Valor"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTablePedidos.setGridColor(new java.awt.Color(200, 200, 255));
-        jScrollPane1.setViewportView(jTablePedidos);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1172, Short.MAX_VALUE))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(570, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -152,7 +103,5 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTablePedidos;
     // End of variables declaration//GEN-END:variables
 }

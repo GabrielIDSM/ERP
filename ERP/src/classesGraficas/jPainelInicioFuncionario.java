@@ -79,7 +79,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             }
         });
 
-        lDataLogin.setFont(new java.awt.Font("Dialog", 1, 28)); // NOI18N
+        lDataLogin.setFont(new java.awt.Font("Dialog", 1, 26)); // NOI18N
         lDataLogin.setForeground(new java.awt.Color(0, 0, 0));
         lDataLogin.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lDataLogin.setText("Login - 00/00/0000");
@@ -92,7 +92,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jButtonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lDataLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lDataLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -116,11 +116,21 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonNovoPedido.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButtonNovoPedido.setForeground(new java.awt.Color(0, 0, 0));
         jButtonNovoPedido.setText("Novo Pedido");
+        jButtonNovoPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNovoPedidoActionPerformed(evt);
+            }
+        });
 
         jButtonListaDePedidos.setBackground(new java.awt.Color(153, 153, 255));
         jButtonListaDePedidos.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButtonListaDePedidos.setForeground(new java.awt.Color(0, 0, 0));
         jButtonListaDePedidos.setText("Lista de Pedidos");
+        jButtonListaDePedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonListaDePedidosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -355,6 +365,19 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             FramePrincipal.jPainelPrincipal.revalidate();
         }
     }//GEN-LAST:event_jButtonLogoutActionPerformed
+
+    private void jButtonListaDePedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListaDePedidosActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelListaDePedidos(getLogin(), 1));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
+    }//GEN-LAST:event_jButtonListaDePedidosActionPerformed
+
+    private void jButtonNovoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoPedidoActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(this);
+        jPainelFuncionario.jPainelPrincipal.repaint();
+    }//GEN-LAST:event_jButtonNovoPedidoActionPerformed
     
     private void adicionaPainel(){
         jPainelFuncionario.jPainelPrincipal.removeAll();
