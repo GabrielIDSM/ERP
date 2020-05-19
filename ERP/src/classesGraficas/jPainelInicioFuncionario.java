@@ -273,6 +273,11 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonCadCliente.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButtonCadCliente.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCadCliente.setText("Cadastrar Cliente");
+        jButtonCadCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadClienteActionPerformed(evt);
+            }
+        });
 
         jButtonListaDeClientes.setBackground(new java.awt.Color(153, 153, 255));
         jButtonListaDeClientes.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -375,9 +380,17 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
 
     private void jButtonNovoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoPedidoActionPerformed
         jPainelFuncionario.jPainelPrincipal.removeAll();
-        jPainelFuncionario.jPainelPrincipal.add(this);
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelNovoPedido(getLogin(), 1));
         jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonNovoPedidoActionPerformed
+
+    private void jButtonCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadClienteActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelNovoCliente(getLogin(), 1));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
+    }//GEN-LAST:event_jButtonCadClienteActionPerformed
     
     private void adicionaPainel(){
         jPainelFuncionario.jPainelPrincipal.removeAll();

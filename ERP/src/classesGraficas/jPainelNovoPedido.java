@@ -22,6 +22,8 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
     }
     //Construtor
     public jPainelNovoPedido(String strlogin, int tipoDeConta) {
+        setStrlogin(strlogin);
+        setTipoDeConta(tipoDeConta);
         initComponents();
     }
 
