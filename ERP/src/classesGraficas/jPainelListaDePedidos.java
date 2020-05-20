@@ -7,9 +7,13 @@ import model.dao.PedidoDAO;
 
 public class jPainelListaDePedidos extends javax.swing.JPanel {
     //Atributos
+    int qualInterface; //-> 0: Pedidos / 1: Com data
     int tipoDeConta;
     String strlogin;
     //Getters
+    public int getQualInterface() {
+        return qualInterface;
+    }
     public int getTipoDeConta() {
         return tipoDeConta;
     }
@@ -17,6 +21,9 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
         return strlogin;
     }
     //Setters
+    public void setQualInterface(int qualInterface) {
+        this.qualInterface = qualInterface;
+    }
     public void setTipoDeConta(int tipoDeConta) {
         this.tipoDeConta = tipoDeConta;
     }
@@ -24,9 +31,10 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
         this.strlogin = strlogin;
     }
     //Construtor
-    public jPainelListaDePedidos(String strlogin, int tipoDeConta) {
+    public jPainelListaDePedidos(String strlogin, int tipoDeConta, int qualInterface) {
         setStrlogin(strlogin);
         setTipoDeConta(tipoDeConta);
+        setQualInterface(qualInterface);
         initComponents();
         ListaDePedidosTableModel tableModel = new ListaDePedidosTableModel();
         jTablePedidos.setModel(tableModel);
@@ -34,7 +42,16 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
         PedidoDAO dao = new PedidoDAO();
         List<Pedido> pedidos = dao.read();
         if(pedidos != null) for(Pedido p: pedidos){
-            tableModel.addRow(p);
+            switch(getQualInterface()){
+                case 0:
+                    tableModel.addRow(p);
+                    break;
+                case 1:
+                    if(!p.getDataDeEntrega().equals("Indefinida")) tableModel.addRow(p);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

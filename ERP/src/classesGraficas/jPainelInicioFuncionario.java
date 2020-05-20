@@ -194,6 +194,11 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonEntregasAgendadas.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButtonEntregasAgendadas.setForeground(new java.awt.Color(0, 0, 0));
         jButtonEntregasAgendadas.setText("Entregas Agendadas");
+        jButtonEntregasAgendadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEntregasAgendadasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -433,7 +438,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
 
     private void jButtonListaDePedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListaDePedidosActionPerformed
         jPainelFuncionario.jPainelPrincipal.removeAll();
-        jPainelFuncionario.jPainelPrincipal.add(new jPainelListaDePedidos(getLogin(), 1));
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelListaDePedidos(getLogin(), 1, 0));
         jPainelFuncionario.jPainelPrincipal.repaint();
         jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonListaDePedidosActionPerformed
@@ -497,6 +502,13 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jPainelFuncionario.jPainelPrincipal.repaint();
         jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonModificarDataActionPerformed
+
+    private void jButtonEntregasAgendadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntregasAgendadasActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelListaDePedidos(getLogin(), 1, 1));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
+    }//GEN-LAST:event_jButtonEntregasAgendadasActionPerformed
     
     private void adicionaPainel(){
         jPainelFuncionario.jPainelPrincipal.removeAll();
