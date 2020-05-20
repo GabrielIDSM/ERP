@@ -179,6 +179,11 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonModificarData.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButtonModificarData.setForeground(new java.awt.Color(0, 0, 0));
         jButtonModificarData.setText("Modificar Data de Entrega");
+        jButtonModificarData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModificarDataActionPerformed(evt);
+            }
+        });
 
         jButtonConfirmarEntrega.setBackground(new java.awt.Color(153, 153, 255));
         jButtonConfirmarEntrega.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -485,6 +490,13 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jPainelFuncionario.jPainelPrincipal.repaint();
         jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonAgendarEntregaActionPerformed
+
+    private void jButtonModificarDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarDataActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelModificarData(getLogin(), 1));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
+    }//GEN-LAST:event_jButtonModificarDataActionPerformed
     
     private void adicionaPainel(){
         jPainelFuncionario.jPainelPrincipal.removeAll();
