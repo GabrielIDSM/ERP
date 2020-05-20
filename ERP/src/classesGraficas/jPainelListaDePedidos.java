@@ -1,5 +1,6 @@
 package classesGraficas;
 
+import classesUtilit.Datas;
 import classesUtilit.ListaDePedidosTableModel;
 import java.util.List;
 import model.bean.Pedido;
@@ -10,6 +11,7 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
     int qualInterface; //-> 0: Pedidos / 1: Com data
     int tipoDeConta;
     String strlogin;
+    List<Pedido> pedidos;
     //Getters
     public int getQualInterface() {
         return qualInterface;
@@ -19,6 +21,9 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
     }
     public String getStrlogin() {
         return strlogin;
+    }
+    public List<Pedido> getPedidos() {
+        return pedidos;
     }
     //Setters
     public void setQualInterface(int qualInterface) {
@@ -30,6 +35,9 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
     public void setStrlogin(String strlogin) {
         this.strlogin = strlogin;
     }
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
     //Construtor
     public jPainelListaDePedidos(String strlogin, int tipoDeConta, int qualInterface) {
         setStrlogin(strlogin);
@@ -40,8 +48,8 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
         jTablePedidos.setModel(tableModel);
         //Definindo tabela
         PedidoDAO dao = new PedidoDAO();
-        List<Pedido> pedidos = dao.read();
-        if(pedidos != null) for(Pedido p: pedidos){
+        setPedidos(dao.read());
+        if(getPedidos() != null) for(Pedido p: getPedidos()){
             switch(getQualInterface()){
                 case 0:
                     tableModel.addRow(p);
@@ -65,10 +73,16 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupo1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablePedidos = new javax.swing.JTable();
+        jPainelFiltro = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPedidosEntregues = new javax.swing.JCheckBox();
+        jEntregasHoje = new javax.swing.JCheckBox();
+        jDefaul = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(230, 230, 230));
         setMaximumSize(new java.awt.Dimension(1186, 636));
@@ -135,6 +149,71 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
         jTablePedidos.setGridColor(new java.awt.Color(200, 200, 255));
         jScrollPane1.setViewportView(jTablePedidos);
 
+        jPainelFiltro.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Filtro");
+
+        grupo1.add(jPedidosEntregues);
+        jPedidosEntregues.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jPedidosEntregues.setForeground(new java.awt.Color(0, 0, 0));
+        jPedidosEntregues.setText("Pedidos Entregues");
+        jPedidosEntregues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPedidosEntreguesActionPerformed(evt);
+            }
+        });
+
+        grupo1.add(jEntregasHoje);
+        jEntregasHoje.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jEntregasHoje.setForeground(new java.awt.Color(0, 0, 0));
+        jEntregasHoje.setText("Entregas para Hoje");
+        jEntregasHoje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEntregasHojeActionPerformed(evt);
+            }
+        });
+
+        grupo1.add(jDefaul);
+        jDefaul.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jDefaul.setForeground(new java.awt.Color(0, 0, 0));
+        jDefaul.setSelected(true);
+        jDefaul.setText("Padrão");
+        jDefaul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDefaulActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPainelFiltroLayout = new javax.swing.GroupLayout(jPainelFiltro);
+        jPainelFiltro.setLayout(jPainelFiltroLayout);
+        jPainelFiltroLayout.setHorizontalGroup(
+            jPainelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPainelFiltroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDefaul, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPedidosEntregues, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jEntregasHoje, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPainelFiltroLayout.setVerticalGroup(
+            jPainelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPainelFiltroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPainelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(jDefaul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPedidosEntregues, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jEntregasHoje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,8 +222,9 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1172, Short.MAX_VALUE))
-                .addContainerGap(8, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1172, Short.MAX_VALUE)
+                    .addComponent(jPainelFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,8 +232,10 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPainelFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -171,10 +253,86 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jPedidosEntreguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPedidosEntreguesActionPerformed
+        ListaDePedidosTableModel tableModel = new ListaDePedidosTableModel();
+        jTablePedidos.setModel(tableModel);
+        if(getPedidos() != null) for(Pedido p: getPedidos()){
+            switch(getQualInterface()){
+                case 0:
+                    if(p.getEstado().equals("Entregue")) tableModel.addRow(p);
+                    break;
+                case 1:
+                    if(!p.getDataDeEntrega().equals("Indefinida") && p.getEstado().equals("Entregue")) tableModel.addRow(p);
+                    break;
+                case 2:
+                    if(p.getVendedor().equals(getStrlogin()) && p.getEstado().equals("Entregue")) tableModel.addRow(p);
+                    break;
+                case 3:
+                    if(p.getEntregador().equals(getStrlogin()) && p.getEstado().equals("Entregue")) tableModel.addRow(p);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }//GEN-LAST:event_jPedidosEntreguesActionPerformed
+
+    private void jEntregasHojeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEntregasHojeActionPerformed
+        String data = Datas.retornaStringDataAtual();
+        ListaDePedidosTableModel tableModel = new ListaDePedidosTableModel();
+        jTablePedidos.setModel(tableModel);
+        if(getPedidos() != null) for(Pedido p: getPedidos()){
+            switch(getQualInterface()){
+                case 0:
+                    if(p.getDataDeEntrega().equals(data)) tableModel.addRow(p);
+                    break;
+                case 1:
+                    if(!p.getDataDeEntrega().equals("Indefinida") && p.getDataDeEntrega().equals(data)) tableModel.addRow(p);
+                    break;
+                case 2:
+                    if(p.getVendedor().equals(getStrlogin()) && p.getDataDeEntrega().equals(data)) tableModel.addRow(p);
+                    break;
+                case 3:
+                    if(p.getEntregador().equals(getStrlogin()) && p.getDataDeEntrega().equals(data)) tableModel.addRow(p);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }//GEN-LAST:event_jEntregasHojeActionPerformed
+
+    private void jDefaulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDefaulActionPerformed
+        ListaDePedidosTableModel tableModel = new ListaDePedidosTableModel();
+        jTablePedidos.setModel(tableModel);
+        if(getPedidos() != null) for(Pedido p: getPedidos()){
+            switch(getQualInterface()){
+                case 0:
+                    tableModel.addRow(p);
+                    break;
+                case 1:
+                    if(!p.getDataDeEntrega().equals("Indefinida")) tableModel.addRow(p);
+                    break;
+                case 2:
+                    if(p.getVendedor().equals(getStrlogin())) tableModel.addRow(p);
+                    break;
+                case 3:
+                    if(p.getEntregador().equals(getStrlogin())) tableModel.addRow(p);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }//GEN-LAST:event_jDefaulActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup grupo1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jDefaul;
+    private javax.swing.JCheckBox jEntregasHoje;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPainelFiltro;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JCheckBox jPedidosEntregues;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablePedidos;
     // End of variables declaration//GEN-END:variables
