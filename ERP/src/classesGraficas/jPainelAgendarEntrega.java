@@ -373,13 +373,13 @@ public class jPainelAgendarEntrega extends javax.swing.JPanel {
             mensagens.exibeMensagemFracasso("Formato inválido");
         }
         if(validade){
-            String[] data = new String[3];
-            data[0] = Data.substring(0, 2);
-            data[1] = Data.substring(3, 5);
-            data[2] = Data.substring(6);
-            //Converter o mês
-            data[1] = Integer.toString(Integer.parseInt(data[1]) - 1);
-            boolean dataJaPassou_Estamos = Datas.dataJaPassou_EstamosNaData(data);
+            if(!Datas.DataValidade(Data)){
+                validade = false;
+                mensagens.exibeMensagemFracasso("Data Inválida");
+            }
+        }
+        if(validade){
+            boolean dataJaPassou_Estamos = Datas.DataPassouMesmaData(Data);
             if(dataJaPassou_Estamos){
                 validade = false;
                 mensagens.exibeMensagemFracasso("O Dia informado já passou ou estamos no dia.");

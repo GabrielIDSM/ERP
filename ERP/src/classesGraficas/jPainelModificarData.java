@@ -362,7 +362,7 @@ public class jPainelModificarData extends javax.swing.JPanel {
             data[2] = Data.substring(6);
             //Converter o mês
             data[1] = Integer.toString(Integer.parseInt(data[1]) - 1);
-            boolean dataJaPassou_Estamos = Datas.dataJaPassou_EstamosNaData(data);
+            boolean dataJaPassou_Estamos = Datas.DataPassouMesmaData(data);
             if(dataJaPassou_Estamos){
                 validade = false;
                 mensagens.exibeMensagemFracasso("O Dia informado já passou ou estamos no dia.");
