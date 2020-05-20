@@ -23,4 +23,36 @@ public abstract class Datas {
         resultado += data[2];
         return resultado;
     }
+    
+    public static boolean dataJaPassou_EstamosNaData(String[] data){
+        Calendar dataHoje = Calendar.getInstance();
+        //Cria um array int com a data de hoje
+        int[] dataHojeArr = new int[3];
+        dataHojeArr[0] = dataHoje.get(Calendar.DAY_OF_MONTH);
+        dataHojeArr[1] = dataHoje.get(Calendar.MONTH);
+        dataHojeArr[2] = dataHoje.get(Calendar.YEAR);
+        //Cria um array int com a data
+        int[] dataPedido = new int[3];
+        dataPedido[0] = Integer.parseInt(data[0]);
+        dataPedido[1] = Integer.parseInt(data[1]);
+        dataPedido[2] = Integer.parseInt(data[2]);
+        //Efetua comparações
+        if(dataHojeArr[2] > dataPedido[2]){
+            return true;
+        }else if(dataHojeArr[2] == dataPedido[2]){
+            if (dataHojeArr[1] > dataPedido[1]) {
+                return true;
+            } else if (dataHojeArr[1] == dataPedido[1]) {
+                if (dataHojeArr[0] >= dataPedido[0]) {
+                    return true;
+                }else{
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }else{
+            return false;
+        }      
+    }
 }

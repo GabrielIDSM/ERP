@@ -58,6 +58,8 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonCadCliente = new javax.swing.JButton();
         jButtonListaDeClientes = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
+        lClientes1 = new javax.swing.JLabel();
+        jButtonAltCadastro = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(230, 230, 230));
         setMaximumSize(new java.awt.Dimension(1186, 636));
@@ -167,6 +169,11 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonAgendarEntrega.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButtonAgendarEntrega.setForeground(new java.awt.Color(0, 0, 0));
         jButtonAgendarEntrega.setText("Agendar Entrega");
+        jButtonAgendarEntrega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgendarEntregaActionPerformed(evt);
+            }
+        });
 
         jButtonModificarData.setBackground(new java.awt.Color(153, 153, 255));
         jButtonModificarData.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -210,7 +217,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                 .addComponent(jButtonConfirmarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonEntregasAgendadas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(316, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(210, 210, 210));
@@ -224,16 +231,31 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonListaDeFunc.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButtonListaDeFunc.setForeground(new java.awt.Color(0, 0, 0));
         jButtonListaDeFunc.setText("Lista de Funcionários");
+        jButtonListaDeFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonListaDeFuncActionPerformed(evt);
+            }
+        });
 
         jButtonEntregadores.setBackground(new java.awt.Color(153, 153, 255));
         jButtonEntregadores.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButtonEntregadores.setForeground(new java.awt.Color(0, 0, 0));
         jButtonEntregadores.setText("Entregadores");
+        jButtonEntregadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEntregadoresActionPerformed(evt);
+            }
+        });
 
         jButtonVendedores.setBackground(new java.awt.Color(153, 153, 255));
         jButtonVendedores.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButtonVendedores.setForeground(new java.awt.Color(0, 0, 0));
         jButtonVendedores.setText("Vendedores");
+        jButtonVendedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVendedoresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -316,15 +338,43 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jPanel6.setBackground(new java.awt.Color(210, 210, 210));
         jPanel6.setPreferredSize(new java.awt.Dimension(228, 546));
 
+        lClientes1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lClientes1.setForeground(new java.awt.Color(0, 0, 0));
+        lClientes1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lClientes1.setText("Cadastro");
+
+        jButtonAltCadastro.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonAltCadastro.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButtonAltCadastro.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonAltCadastro.setText("Alterar Cadastro");
+        jButtonAltCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAltCadastroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 228, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(lClientes1, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                        .addGap(4, 4, 4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(jButtonAltCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 546, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lClientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonAltCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -403,6 +453,38 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jPainelFuncionario.jPainelPrincipal.repaint();
         jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonListaDeClientesActionPerformed
+
+    private void jButtonAltCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAltCadastroActionPerformed
+
+    private void jButtonListaDeFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListaDeFuncActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelListaDeFuncionarios(getLogin(), 1, 0));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
+    }//GEN-LAST:event_jButtonListaDeFuncActionPerformed
+
+    private void jButtonEntregadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntregadoresActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelListaDeFuncionarios(getLogin(), 1, 2));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
+    }//GEN-LAST:event_jButtonEntregadoresActionPerformed
+
+    private void jButtonVendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVendedoresActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelListaDeFuncionarios(getLogin(), 1, 1));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
+    }//GEN-LAST:event_jButtonVendedoresActionPerformed
+
+    private void jButtonAgendarEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendarEntregaActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelAgendarEntrega(getLogin(), 1));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
+    }//GEN-LAST:event_jButtonAgendarEntregaActionPerformed
     
     private void adicionaPainel(){
         jPainelFuncionario.jPainelPrincipal.removeAll();
@@ -412,6 +494,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgendarEntrega;
+    private javax.swing.JButton jButtonAltCadastro;
     private javax.swing.JButton jButtonCadCliente;
     private javax.swing.JButton jButtonConfirmarEntrega;
     private javax.swing.JButton jButtonEntregadores;
@@ -430,6 +513,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lClientes;
+    private javax.swing.JLabel lClientes1;
     private javax.swing.JLabel lDataLogin;
     private javax.swing.JLabel lEntregas;
     private javax.swing.JLabel lFuncionarios;
