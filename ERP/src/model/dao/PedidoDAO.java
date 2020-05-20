@@ -31,6 +31,28 @@ public class PedidoDAO {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
+    public void update(Pedido pedido){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        try {
+            //Atualizando conteúdo no BD
+            stmt = con.prepareStatement("Update pedidos set Vendedor = ?, Cliente = ?, DataDeEntrega = ?, Entregador = ?, Valor = ?, Estado = ? where ID = ?");
+            stmt.setString(1, pedido.getVendedor());
+            stmt.setString(2, pedido.getCliente());
+            stmt.setString(3, pedido.getDataDeEntrega());
+            stmt.setString(4, pedido.getEntregador());
+            stmt.setFloat(5, pedido.getValor());
+            stmt.setString(6, pedido.getEstado());
+            stmt.setInt(7, pedido.getID());
+            stmt.executeUpdate();
+            System.out.println("Foi possível!");
+        } catch (SQLException ex) {
+            Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Não foi possível");
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
     
     public List<Pedido> read(){
         Connection con = ConnectionFactory.getConnection();

@@ -5,7 +5,9 @@ import java.math.BigDecimal;
 import java.util.List;
 import javax.swing.JFormattedTextField;
 import model.bean.Cliente;
+import model.bean.Pedido;
 import model.dao.ClienteDAO;
+import model.dao.PedidoDAO;
 
 
 
@@ -16,6 +18,7 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
     List<Cliente> clientes;
     BigDecimal BDvalor;
     String cliente;
+    Cliente objCliente;
     //Getters
     public int getTipoDeConta() {
         return tipoDeConta;
@@ -32,6 +35,9 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
     public String getCliente() {
         return cliente;
     }
+    public Cliente getObjCliente() {
+        return objCliente;
+    }
     //Setters
     public void setTipoDeConta(int tipoDeConta) {
         this.tipoDeConta = tipoDeConta;
@@ -47,7 +53,10 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
     }
     public void setCliente(String cliente) {
         this.cliente = cliente;
-    }   
+    }  
+    public void setObjCliente(Cliente objCliente) {
+        this.objCliente = objCliente;
+    }
     //Construtor
     public jPainelNovoPedido(String strlogin, int tipoDeConta) {
         setStrlogin(strlogin);
@@ -369,6 +378,7 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
         int index = jCliente.getSelectedIndex();
         if(index != 0){
             setCliente(getClientes().get(index-1).getCliente());
+            setObjCliente(getClientes().get(index - 1));
             jPainelValor.setVisible(true);
             jCliente.setEnabled(false);
             jButtonConfirmarCliente.setEnabled(false);
@@ -413,7 +423,28 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonConfirmarValorActionPerformed
 
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
-        
+        //Criação do Objeto Pedido
+        Pedido novoPedido = new Pedido();
+        novoPedido.setVendedor(getStrlogin());
+        novoPedido.setCliente(getCliente());
+        novoPedido.setDataDeEntrega("Indefinida");
+        novoPedido.setEntregador("Indefinido");
+        novoPedido.setValor(getBDvalor().floatValue());
+        novoPedido.setEstado("Pedido Criado");
+        //Inserção do objeto no BD
+        PedidoDAO dao = new PedidoDAO();
+        dao.create(novoPedido);
+        //Modificação na tabela Clientes
+        try{
+            getObjCliente().setPedidosFeitos(getObjCliente().getPedidosFeitos() + 1);
+            ClienteDAO daoC = new ClienteDAO();
+            daoC.update(getObjCliente());
+        }catch (Exception e){
+            mensagens.exibeMensagemFracasso("Ocorreu um erro no acesso/modificação");
+        }
+        //Mensagens finais
+        mensagens.exibeMensagemSucesso();
+        jButton1ActionPerformed(evt);
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
 

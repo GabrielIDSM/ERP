@@ -34,6 +34,27 @@ public class ClienteDAO {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
+    public void update(Cliente cliente){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        try {
+            //Atualizando conteúdo no BD
+            stmt = con.prepareStatement("Update clientes set PedidosFeitos = ?, Numero = ?, Rua = ?, CEP = ?, Complemento = ? where Cliente = ?");
+            stmt.setInt(1, cliente.getPedidosFeitos());
+            stmt.setString(2, cliente.getNumero());
+            stmt.setString(3, cliente.getRua());
+            stmt.setString(4, cliente.getCEP());
+            stmt.setString(5, cliente.getComplemento());
+            stmt.setString(6, cliente.getCliente());
+            stmt.executeUpdate();
+            System.out.println("Foi possível!");
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Não foi possível");
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
     
     public List<Cliente> read(){
         Connection con = ConnectionFactory.getConnection();

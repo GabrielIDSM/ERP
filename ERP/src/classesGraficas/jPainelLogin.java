@@ -95,7 +95,7 @@ public class jPainelLogin extends javax.swing.JPanel {
         lSenha.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lSenha.setText("SENHA");
 
-        Login.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        Login.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
 
         Senha.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
 
@@ -183,7 +183,7 @@ public class jPainelLogin extends javax.swing.JPanel {
         lSenhaCad.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lSenhaCad.setText("SENHA");
 
-        Login1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        Login1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         Login1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Login1MouseClicked(evt);

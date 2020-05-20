@@ -85,6 +85,10 @@ public class jPainelListaDeClientes extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jTableClientes.setBackground(new java.awt.Color(210, 210, 210));
         jTableClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

@@ -28,6 +28,24 @@ public class ContaDAO {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
+    public void update(Conta conta){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        try {
+            //Atualizando conteúdo no BD
+            stmt = con.prepareStatement("Update contas set Senha = ?, Funcao = ? where Login = ?");
+            stmt.setString(1, conta.getSenha());
+            stmt.setInt(2, conta.getFuncao());
+            stmt.setString(3, conta.getLogin());
+            stmt.executeUpdate();
+            System.out.println("Foi possível!");
+        } catch (SQLException ex) {
+            Logger.getLogger(ContaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Não foi possível");
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
     
     public List<Conta> read(){
         Connection con = ConnectionFactory.getConnection();
