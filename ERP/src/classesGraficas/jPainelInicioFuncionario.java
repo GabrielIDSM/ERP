@@ -58,8 +58,6 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonCadCliente = new javax.swing.JButton();
         jButtonListaDeClientes = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        lClientes1 = new javax.swing.JLabel();
-        jButtonAltCadastro = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(230, 230, 230));
         setMaximumSize(new java.awt.Dimension(1186, 636));
@@ -189,6 +187,11 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonConfirmarEntrega.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButtonConfirmarEntrega.setForeground(new java.awt.Color(0, 0, 0));
         jButtonConfirmarEntrega.setText("Confirmar Entrega");
+        jButtonConfirmarEntrega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfirmarEntregaActionPerformed(evt);
+            }
+        });
 
         jButtonEntregasAgendadas.setBackground(new java.awt.Color(153, 153, 255));
         jButtonEntregasAgendadas.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -348,43 +351,15 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jPanel6.setBackground(new java.awt.Color(210, 210, 210));
         jPanel6.setPreferredSize(new java.awt.Dimension(228, 546));
 
-        lClientes1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lClientes1.setForeground(new java.awt.Color(0, 0, 0));
-        lClientes1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lClientes1.setText("Cadastro");
-
-        jButtonAltCadastro.setBackground(new java.awt.Color(153, 153, 255));
-        jButtonAltCadastro.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jButtonAltCadastro.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonAltCadastro.setText("Alterar Cadastro");
-        jButtonAltCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAltCadastroActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(lClientes1, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                        .addGap(4, 4, 4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(jButtonAltCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+            .addGap(0, 228, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lClientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonAltCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 546, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -464,10 +439,6 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonListaDeClientesActionPerformed
 
-    private void jButtonAltCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltCadastroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAltCadastroActionPerformed
-
     private void jButtonListaDeFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListaDeFuncActionPerformed
         jPainelFuncionario.jPainelPrincipal.removeAll();
         jPainelFuncionario.jPainelPrincipal.add(new jPainelListaDeFuncionarios(getLogin(), 1, 0));
@@ -509,6 +480,13 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jPainelFuncionario.jPainelPrincipal.repaint();
         jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonEntregasAgendadasActionPerformed
+
+    private void jButtonConfirmarEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarEntregaActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelConfirmarEntrega(getLogin(), 1));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
+    }//GEN-LAST:event_jButtonConfirmarEntregaActionPerformed
     
     private void adicionaPainel(){
         jPainelFuncionario.jPainelPrincipal.removeAll();
@@ -518,7 +496,6 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgendarEntrega;
-    private javax.swing.JButton jButtonAltCadastro;
     private javax.swing.JButton jButtonCadCliente;
     private javax.swing.JButton jButtonConfirmarEntrega;
     private javax.swing.JButton jButtonEntregadores;
@@ -537,7 +514,6 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lClientes;
-    private javax.swing.JLabel lClientes1;
     private javax.swing.JLabel lDataLogin;
     private javax.swing.JLabel lEntregas;
     private javax.swing.JLabel lFuncionarios;
