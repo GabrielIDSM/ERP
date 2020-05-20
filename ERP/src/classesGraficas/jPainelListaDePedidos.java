@@ -49,6 +49,12 @@ public class jPainelListaDePedidos extends javax.swing.JPanel {
                 case 1:
                     if(!p.getDataDeEntrega().equals("Indefinida")) tableModel.addRow(p);
                     break;
+                case 2:
+                    if(p.getVendedor().equals(getStrlogin())) tableModel.addRow(p);
+                    break;
+                case 3:
+                    if(p.getEntregador().equals(getStrlogin())) tableModel.addRow(p);
+                    break;
                 default:
                     break;
             }

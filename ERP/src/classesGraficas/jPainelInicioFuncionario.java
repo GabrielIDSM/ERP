@@ -22,10 +22,12 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             jButtonAgendarEntrega.setEnabled(false);
             jButtonModificarData.setEnabled(false);
             jButtonConfirmarEntrega.setEnabled(false);
+            jButtonMinhasEntregas.setEnabled(false);
             lDataLogin.setText("Bem-vindo, " + strLogin + " - Vendedor - " + Datas.retornaStringDataAtual());
         }else{
             jButtonNovoPedido.setEnabled(false);
             jButtonCadCliente.setEnabled(false);
+            jButtonMeusPedidos.setEnabled(false);
             lDataLogin.setText("Bem-vindo, " + strLogin + " - Entregador - " + Datas.retornaStringDataAtual());
         }
         adicionaPainel();
@@ -42,12 +44,14 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         lPedidos = new javax.swing.JLabel();
         jButtonNovoPedido = new javax.swing.JButton();
         jButtonListaDePedidos = new javax.swing.JButton();
+        jButtonMeusPedidos = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lEntregas = new javax.swing.JLabel();
         jButtonAgendarEntrega = new javax.swing.JButton();
         jButtonModificarData = new javax.swing.JButton();
         jButtonConfirmarEntrega = new javax.swing.JButton();
         jButtonEntregasAgendadas = new javax.swing.JButton();
+        jButtonMinhasEntregas = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         lFuncionarios = new javax.swing.JLabel();
         jButtonListaDeFunc = new javax.swing.JButton();
@@ -132,6 +136,16 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             }
         });
 
+        jButtonMeusPedidos.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonMeusPedidos.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButtonMeusPedidos.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonMeusPedidos.setText("Meus Pedidos");
+        jButtonMeusPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMeusPedidosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -141,7 +155,8 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonNovoPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonListaDePedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
+                    .addComponent(jButtonListaDePedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(jButtonMeusPedidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -151,6 +166,8 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                 .addComponent(lPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonNovoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonMeusPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonListaDePedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -203,6 +220,16 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             }
         });
 
+        jButtonMinhasEntregas.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonMinhasEntregas.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButtonMinhasEntregas.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonMinhasEntregas.setText("Minhas Entregas");
+        jButtonMinhasEntregas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMinhasEntregasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -214,7 +241,8 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                     .addComponent(jButtonAgendarEntrega, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonModificarData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonConfirmarEntrega, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonEntregasAgendadas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonEntregasAgendadas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonMinhasEntregas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -229,8 +257,10 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonConfirmarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonMinhasEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonEntregasAgendadas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(210, 210, 210));
@@ -487,6 +517,20 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jPainelFuncionario.jPainelPrincipal.repaint();
         jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonConfirmarEntregaActionPerformed
+
+    private void jButtonMeusPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMeusPedidosActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelListaDePedidos(getLogin(), 1, 2));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
+    }//GEN-LAST:event_jButtonMeusPedidosActionPerformed
+
+    private void jButtonMinhasEntregasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMinhasEntregasActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelListaDePedidos(getLogin(), 1, 3));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
+    }//GEN-LAST:event_jButtonMinhasEntregasActionPerformed
     
     private void adicionaPainel(){
         jPainelFuncionario.jPainelPrincipal.removeAll();
@@ -504,6 +548,8 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     private javax.swing.JButton jButtonListaDeFunc;
     private javax.swing.JButton jButtonListaDePedidos;
     private javax.swing.JButton jButtonLogout;
+    private javax.swing.JButton jButtonMeusPedidos;
+    private javax.swing.JButton jButtonMinhasEntregas;
     private javax.swing.JButton jButtonModificarData;
     private javax.swing.JButton jButtonNovoPedido;
     private javax.swing.JButton jButtonVendedores;

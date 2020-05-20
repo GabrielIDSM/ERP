@@ -158,6 +158,7 @@
                       <Component id="lPedidos" max="32767" attributes="0"/>
                       <Component id="jButtonNovoPedido" max="32767" attributes="0"/>
                       <Component id="jButtonListaDePedidos" pref="218" max="32767" attributes="0"/>
+                      <Component id="jButtonMeusPedidos" alignment="1" pref="218" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -170,6 +171,8 @@
                   <Component id="lPedidos" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonNovoPedido" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonMeusPedidos" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonListaDePedidos" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -224,6 +227,23 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonListaDePedidosActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="jButtonMeusPedidos">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="16" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Meus Pedidos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonMeusPedidosActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel3">
@@ -244,6 +264,7 @@
                       <Component id="jButtonModificarData" alignment="1" max="32767" attributes="0"/>
                       <Component id="jButtonConfirmarEntrega" alignment="1" max="32767" attributes="0"/>
                       <Component id="jButtonEntregasAgendadas" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jButtonMinhasEntregas" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -261,8 +282,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonConfirmarEntrega" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonMinhasEntregas" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonEntregasAgendadas" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace pref="316" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -346,6 +369,23 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEntregasAgendadasActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonMinhasEntregas">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="16" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Minhas Entregas"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonMinhasEntregasActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
