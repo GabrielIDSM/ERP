@@ -8,7 +8,7 @@ import model.bean.Produto;
 public class ListaDeProdutosTableModel extends AbstractTableModel{
     //Atributos
     private List<Produto> linhas = new ArrayList<>();
-    private String[] colunas = {"ID", "Nome", "Pedidos Feitos", "Número"};
+    private String[] colunas = {"ID", "Nome", "Quantidade", "Valor Unitário (Em R$)"};
     //Getters e Setters
     public List<Produto> getLinhas() {
         return linhas;

@@ -17,6 +17,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     public jPainelInicioFuncionario(String strLogin) {
         setstrLogin(strLogin);
         initComponents();
+        lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/InicioFunc.png")));
         //Verifica se um funcionários é um vendedor
         if(Contas.isVendedor(strLogin)){
             jButtonAgendarEntrega.setEnabled(false);
@@ -68,6 +69,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonInventario = new javax.swing.JButton();
         jButtonCadastrarProduto = new javax.swing.JButton();
         jButtonRepDeEstoque = new javax.swing.JButton();
+        lImagem = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(230, 230, 230));
         setMaximumSize(new java.awt.Dimension(1186, 636));
@@ -266,7 +268,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                 .addComponent(jButtonMinhasEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonEntregasAgendadas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(210, 210, 210));
@@ -466,6 +468,9 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        lImagem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lImagem.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -473,6 +478,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -492,12 +498,14 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -621,7 +629,10 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonInventarioActionPerformed
 
     private void jButtonCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarProdutoActionPerformed
-        // TODO add your handling code here:
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelCadProduto(getLogin(), 1));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonCadastrarProdutoActionPerformed
 
     private void jButtonRepDeEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepDeEstoqueActionPerformed
@@ -664,6 +675,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     private javax.swing.JLabel lDataLogin;
     private javax.swing.JLabel lEntregas;
     private javax.swing.JLabel lFuncionarios;
+    private javax.swing.JLabel lImagem;
     private javax.swing.JLabel lPedidos;
     // End of variables declaration//GEN-END:variables
 }

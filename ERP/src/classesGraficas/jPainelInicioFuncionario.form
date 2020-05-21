@@ -33,6 +33,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lImagem" max="32767" attributes="0"/>
                   <Component id="jPanel1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -56,13 +57,15 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel2" max="32767" attributes="0"/>
-                  <Component id="jPanel3" max="32767" attributes="0"/>
-                  <Component id="jPanel4" alignment="1" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanel6" pref="282" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lImagem" pref="258" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -285,7 +288,7 @@
                   <Component id="jButtonMinhasEntregas" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonEntregasAgendadas" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace pref="270" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -712,5 +715,11 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="lImagem">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="2"/>
+        <Property name="verticalAlignment" type="int" value="1"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
