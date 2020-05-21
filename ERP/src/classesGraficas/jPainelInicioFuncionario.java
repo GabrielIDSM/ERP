@@ -24,13 +24,27 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             jButtonModificarData.setEnabled(false);
             jButtonConfirmarEntrega.setEnabled(false);
             jButtonMinhasEntregas.setEnabled(false);
+            jButtonCadastrarProduto.setEnabled(false);
+            jButtonRepDeEstoque.setEnabled(false);
             lDataLogin.setText("Bem-vindo, " + strLogin + " - Vendedor - " + Datas.retornaStringDataAtual());
-        }else{
+        }else if (Contas.isEntregador(strLogin)){
             jButtonNovoPedido.setEnabled(false);
             jButtonCadCliente.setEnabled(false);
             jButtonAlterarCadCliente.setEnabled(false);
             jButtonMeusPedidos.setEnabled(false);
+            jButtonCadastrarProduto.setEnabled(false);
+            jButtonRepDeEstoque.setEnabled(false);
             lDataLogin.setText("Bem-vindo, " + strLogin + " - Entregador - " + Datas.retornaStringDataAtual());
+        }else {
+            jButtonAgendarEntrega.setEnabled(false);
+            jButtonModificarData.setEnabled(false);
+            jButtonConfirmarEntrega.setEnabled(false);
+            jButtonMinhasEntregas.setEnabled(false);
+            jButtonNovoPedido.setEnabled(false);
+            jButtonCadCliente.setEnabled(false);
+            jButtonAlterarCadCliente.setEnabled(false);
+            jButtonMeusPedidos.setEnabled(false);
+            lDataLogin.setText("Bem-vindo, " + strLogin + " - Gerente - " + Datas.retornaStringDataAtual());
         }
         adicionaPainel();
     }

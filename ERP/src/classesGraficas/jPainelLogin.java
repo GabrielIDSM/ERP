@@ -334,12 +334,6 @@ public class jPainelLogin extends javax.swing.JPanel {
             int qualTipoDeConta = Contas.retornaTipoDeConta(auxLogin, auxSenha);
             //Switch que muda o painel em função do tipo de conta
             switch (qualTipoDeConta){
-                case 0:
-                    FramePrincipal.jPainelPrincipal.removeAll();
-                    FramePrincipal.jPainelPrincipal.add(new jPainelDono(getStringLogin(), getArraySenha()));
-                    FramePrincipal.jPainelPrincipal.repaint();
-                    FramePrincipal.jPainelPrincipal.revalidate();
-                    break;
                 case 1:
                     FramePrincipal.jPainelPrincipal.removeAll();
                     FramePrincipal.jPainelPrincipal.add(new jPainelFuncionario(getStringLogin(), getArraySenha()));

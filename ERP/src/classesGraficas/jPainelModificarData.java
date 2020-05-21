@@ -322,11 +322,6 @@ public class jPainelModificarData extends javax.swing.JPanel {
             jPainelFuncionario.jPainelPrincipal.add(new jPainelInicioFuncionario(getStrlogin()));
             jPainelFuncionario.jPainelPrincipal.repaint();
             jPainelFuncionario.jPainelPrincipal.revalidate();
-        }else{
-            jPainelDono.jPainelPrincipal.removeAll();
-            jPainelDono.jPainelPrincipal.add(new jPainelInicioDono(getStrlogin()));
-            jPainelDono.jPainelPrincipal.repaint();
-            jPainelDono.jPainelPrincipal.revalidate();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

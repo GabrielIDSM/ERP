@@ -13,13 +13,8 @@ public abstract class Contas {
             for (int i = 0; i < arraySenha.length; i++) {
                 senha += arraySenha[i];
             }
-        if(verificaContaDono(login, senha)) return 0;
-        else if(verificaContaFuncionario(login, senha)) return 1;
+        if(verificaContaFuncionario(login, senha)) return 1;
         else return -1;
-    }
-    
-    private static boolean verificaContaDono(String login, String senha){
-        return login.equals("GabrielInacio") && senha.equals("UGR8YPLH7G");
     }
     
     private static boolean verificaContaFuncionario(String login, String senha){
@@ -44,6 +39,20 @@ public abstract class Contas {
         if (contas != null) for (Conta c : contas){
             if(c.getLogin().equals(login)){
                 if(c.getFuncao() == 0) return true;
+            }
+        }
+        return false;
+    }
+    
+    public static boolean isEntregador(String login){
+        //Lista com os funcionários
+        List<Conta> contas = new ArrayList<>();
+        ContaDAO dao = new ContaDAO();
+        contas = dao.read();
+        //Verifica se o funcionarios é um entregador
+        if (contas != null) for (Conta c : contas){
+            if(c.getLogin().equals(login)){
+                if(c.getFuncao() == 1) return true;
             }
         }
         return false;
