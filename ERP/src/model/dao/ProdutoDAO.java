@@ -58,7 +58,7 @@ public class ProdutoDAO {
         List<Produto> produtos = new ArrayList<>();
         try {
             //Efetua a leitura
-            stmt = con.prepareStatement("Select * from clientes");
+            stmt = con.prepareStatement("Select * from produtos");
             res = stmt.executeQuery();
             while(res.next()){
                 Produto produto = new Produto();

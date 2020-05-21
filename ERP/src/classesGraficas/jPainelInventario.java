@@ -1,9 +1,16 @@
 package classesGraficas;
 
+import classesUtilit.ListaDeProdutosTableModel;
+import java.util.ArrayList;
+import java.util.List;
+import model.bean.Produto;
+import model.dao.ProdutoDAO;
+
 public class jPainelInventario extends javax.swing.JPanel {
     //Atributos
     int tipoDeConta;
     String strlogin;
+    List<Produto> produtos = new ArrayList<>();
     //Getters e Setters
     public int getTipoDeConta() {
         return tipoDeConta;
@@ -17,11 +24,24 @@ public class jPainelInventario extends javax.swing.JPanel {
     public void setStrlogin(String strlogin) {
         this.strlogin = strlogin;
     }
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
     //Construtor
-    public jPainelInventario() {
+    public jPainelInventario(String strlogin, int tipoDeConta) {
         setStrlogin(strlogin);
         setTipoDeConta(tipoDeConta);
         initComponents();
+        ListaDeProdutosTableModel TableModel = new ListaDeProdutosTableModel();
+        jTableProdutos.setModel(TableModel);
+        ProdutoDAO dao = new ProdutoDAO();
+        setProdutos(dao.read());
+        if(getProdutos() != null) for(Produto p : getProdutos()){
+            TableModel.addRow(p);
+        }
     }
 
     @SuppressWarnings("unchecked")

@@ -614,7 +614,10 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonAlterarCadClienteActionPerformed
 
     private void jButtonInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInventarioActionPerformed
-        // TODO add your handling code here:
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelInventario(getLogin(), 1));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonInventarioActionPerformed
 
     private void jButtonCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarProdutoActionPerformed
