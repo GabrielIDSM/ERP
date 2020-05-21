@@ -65,6 +65,9 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonAlterarCadCliente = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         lClientes1 = new javax.swing.JLabel();
+        jButtonInventario = new javax.swing.JButton();
+        jButtonCadastrarProduto = new javax.swing.JButton();
+        jButtonRepDeEstoque = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(230, 230, 230));
         setMaximumSize(new java.awt.Dimension(1186, 636));
@@ -402,13 +405,51 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         lClientes1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lClientes1.setText("Estoque");
 
+        jButtonInventario.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonInventario.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButtonInventario.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonInventario.setText("Inventário");
+        jButtonInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInventarioActionPerformed(evt);
+            }
+        });
+
+        jButtonCadastrarProduto.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonCadastrarProduto.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButtonCadastrarProduto.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonCadastrarProduto.setText("Cadastrar Produto");
+        jButtonCadastrarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarProdutoActionPerformed(evt);
+            }
+        });
+
+        jButtonRepDeEstoque.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonRepDeEstoque.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButtonRepDeEstoque.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonRepDeEstoque.setText("Reposição de Estoque");
+        jButtonRepDeEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRepDeEstoqueActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(lClientes1, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(lClientes1, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonCadastrarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonRepDeEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -416,6 +457,12 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lClientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonRepDeEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -565,6 +612,18 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jPainelFuncionario.jPainelPrincipal.repaint();
         jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonAlterarCadClienteActionPerformed
+
+    private void jButtonInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInventarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonInventarioActionPerformed
+
+    private void jButtonCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCadastrarProdutoActionPerformed
+
+    private void jButtonRepDeEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepDeEstoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRepDeEstoqueActionPerformed
     
     private void adicionaPainel(){
         jPainelFuncionario.jPainelPrincipal.removeAll();
@@ -576,9 +635,11 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     private javax.swing.JButton jButtonAgendarEntrega;
     private javax.swing.JButton jButtonAlterarCadCliente;
     private javax.swing.JButton jButtonCadCliente;
+    private javax.swing.JButton jButtonCadastrarProduto;
     private javax.swing.JButton jButtonConfirmarEntrega;
     private javax.swing.JButton jButtonEntregadores;
     private javax.swing.JButton jButtonEntregasAgendadas;
+    private javax.swing.JButton jButtonInventario;
     private javax.swing.JButton jButtonListaDeClientes;
     private javax.swing.JButton jButtonListaDeFunc;
     private javax.swing.JButton jButtonListaDePedidos;
@@ -587,6 +648,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     private javax.swing.JButton jButtonMinhasEntregas;
     private javax.swing.JButton jButtonModificarData;
     private javax.swing.JButton jButtonNovoPedido;
+    private javax.swing.JButton jButtonRepDeEstoque;
     private javax.swing.JButton jButtonVendedores;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
