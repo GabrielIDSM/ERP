@@ -9,8 +9,6 @@ import model.bean.Pedido;
 import model.dao.ClienteDAO;
 import model.dao.PedidoDAO;
 
-
-
 public class jPainelNovoPedido extends javax.swing.JPanel {
     //Atributos
     int tipoDeConta;

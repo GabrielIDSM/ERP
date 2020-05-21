@@ -490,8 +490,7 @@ public class jPainelNovoCliente extends javax.swing.JPanel {
         }else if(getComplemento().length() > 200 || getComplemento().length() < 1){
             validade = false;
             mensagens.exibeMensagemFracasso("Campo(s) preenchido(s) incorretamente");
-        }
-        if(!jSN.isSelected()) try{
+        }else if(!jSN.isSelected()) try{
             int t = Integer.parseInt(getNumero());
         }catch(NumberFormatException e){
             validade = false;
