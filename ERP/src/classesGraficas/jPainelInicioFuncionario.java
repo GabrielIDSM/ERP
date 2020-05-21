@@ -25,7 +25,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             jButtonConfirmarEntrega.setEnabled(false);
             jButtonMinhasEntregas.setEnabled(false);
             jButtonCadastrarProduto.setEnabled(false);
-            //jButtonRepDeEstoque.setEnabled(false);
+            jButtonRepDeEstoque.setEnabled(false);
             lDataLogin.setText("Bem-vindo, " + strLogin + " - Vendedor - " + Datas.retornaStringDataAtual());
         }else if (Contas.isEntregador(strLogin)){
             jButtonNovoPedido.setEnabled(false);
