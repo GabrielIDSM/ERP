@@ -650,7 +650,10 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonCadastrarProdutoActionPerformed
 
     private void jButtonRepDeEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepDeEstoqueActionPerformed
-        // TODO add your handling code here:
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelRepDeEstoque(getLogin(), 1));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonRepDeEstoqueActionPerformed
     
     private void adicionaPainel(){
