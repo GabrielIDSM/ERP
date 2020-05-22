@@ -1,22 +1,29 @@
 package classesGraficas;
 
+import classesUtilit.ListaDeProdutosTableModel;
+import classesUtilit.Valores;
 import classesUtilit.mensagens;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFormattedTextField;
 import model.bean.Cliente;
 import model.bean.Pedido;
+import model.bean.Produto;
 import model.dao.ClienteDAO;
 import model.dao.PedidoDAO;
+import model.dao.ProdutoDAO;
 
 public class jPainelNovoPedido extends javax.swing.JPanel {
     //Atributos
     int tipoDeConta;
     String strlogin;
     List<Cliente> clientes;
-    BigDecimal BDvalor;
     String cliente;
     Cliente objCliente;
+    List<Produto> produtos;
+    List<Produto> produtosMod = new ArrayList<>();
+    float valorTotal = (float) 0.0;
     //Getters
     public int getTipoDeConta() {
         return tipoDeConta;
@@ -27,14 +34,20 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
     public List<Cliente> getClientes() {
         return clientes;
     }
-    public BigDecimal getBDvalor() {
-        return BDvalor;
-    }
     public String getCliente() {
         return cliente;
     }
     public Cliente getObjCliente() {
         return objCliente;
+    }
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+    public List<Produto> getProdutosMod() {
+        return produtosMod;
+    }
+    public float getValorTotal() {
+        return valorTotal;
     }
     //Setters
     public void setTipoDeConta(int tipoDeConta) {
@@ -46,14 +59,20 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
     public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
     }
-    public void setBDvalor(BigDecimal BDvalor) {
-        this.BDvalor = BDvalor;
-    }
     public void setCliente(String cliente) {
         this.cliente = cliente;
     }  
     public void setObjCliente(Cliente objCliente) {
         this.objCliente = objCliente;
+    }
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+    public void setProdutosMod(List<Produto> produtosMod) {
+        this.produtosMod = produtosMod;
+    }
+    public void setValorTotal(float valorTotal) {
+        this.valorTotal = valorTotal;
     }
     //Construtor
     public jPainelNovoPedido(String strlogin, int tipoDeConta) {
@@ -63,12 +82,21 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
         //Determinar clientes
         ClienteDAO dao = new ClienteDAO();
         setClientes(dao.read());
-        if(clientes != null) for(Cliente c : getClientes()){
+        if(getClientes() != null) for(Cliente c : getClientes()){
             jCliente.addItem(c.getCliente());
         }
-        lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/NovoPedido.png")));
+        ListaDeProdutosTableModel TableModel = new ListaDeProdutosTableModel();
+        jTableProdutos.setModel(TableModel);
+        ProdutoDAO daoProd = new ProdutoDAO();
+        setProdutos(daoProd.read());
+        if(getProdutos() != null) for(Produto p : getProdutos()){
+            TableModel.addRow(p);
+        }
         jPainelValor.setVisible(false);
         jPainelConfirmar.setVisible(false);
+        jQuantidade.setEnabled(false);
+        jButtonConfirmarProduto.setEnabled(false);
+        jButtonConfirmarValor.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -81,11 +109,16 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jCliente = new javax.swing.JComboBox<>();
         jButtonConfirmarCliente = new javax.swing.JButton();
-        lImagem = new javax.swing.JLabel();
         jPainelValor = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jValor = new javax.swing.JFormattedTextField();
         jButtonConfirmarValor = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableProdutos = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        jQuantidade = new javax.swing.JTextField();
+        jButtonConfirmarProduto = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        lTotal = new javax.swing.JLabel();
         jPainelConfirmar = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -120,7 +153,7 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1056, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,35 +211,14 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        lImagem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lImagem.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        lImagem.setMaximumSize(new java.awt.Dimension(636, 558));
-        lImagem.setMinimumSize(new java.awt.Dimension(636, 558));
-
         jPainelValor.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("2. Valor Total dos Produtos (Em R$)");
 
-        jValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.00"))));
-        jValor.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jValor.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jValorFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jValorFocusLost(evt);
-            }
-        });
-        jValor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jValorMouseClicked(evt);
-            }
-        });
-
         jButtonConfirmarValor.setBackground(new java.awt.Color(153, 153, 255));
-        jButtonConfirmarValor.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonConfirmarValor.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jButtonConfirmarValor.setForeground(new java.awt.Color(0, 0, 0));
         jButtonConfirmarValor.setText("Confirmar");
         jButtonConfirmarValor.addActionListener(new java.awt.event.ActionListener() {
@@ -215,32 +227,96 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
             }
         });
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jTableProdutos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTableProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableProdutosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableProdutos);
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Quantidade de Produtos");
+
+        jQuantidade.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jQuantidade.setForeground(new java.awt.Color(0, 0, 0));
+
+        jButtonConfirmarProduto.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonConfirmarProduto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonConfirmarProduto.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonConfirmarProduto.setText("Confirmar");
+        jButtonConfirmarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfirmarProdutoActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Subtotal ");
+
+        lTotal.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lTotal.setForeground(new java.awt.Color(0, 0, 0));
+        lTotal.setText("R$0,00");
+
         javax.swing.GroupLayout jPainelValorLayout = new javax.swing.GroupLayout(jPainelValor);
         jPainelValor.setLayout(jPainelValorLayout);
         jPainelValorLayout.setHorizontalGroup(
             jPainelValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPainelValorLayout.createSequentialGroup()
+                .addGap(466, 466, 466)
+                .addGroup(jPainelValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonConfirmarProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonConfirmarValor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
             .addGroup(jPainelValorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPainelValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPainelValorLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPainelValorLayout.createSequentialGroup()
-                        .addComponent(jValor, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jButtonConfirmarValor, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
+                        .addGroup(jPainelValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+                            .addComponent(jQuantidade, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPainelValorLayout.setVerticalGroup(
             jPainelValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPainelValorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPainelValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jValor, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(jButtonConfirmarValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(20, 20, 20))
+                    .addComponent(jButtonConfirmarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(jQuantidade))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPainelValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonConfirmarValor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
         jPainelConfirmar.setBackground(new java.awt.Color(255, 255, 255));
@@ -291,17 +367,17 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
             .addGroup(jPainelConfirmarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPainelConfirmarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPainelConfirmarLayout.createSequentialGroup()
-                .addGap(205, 205, 205)
-                .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPainelConfirmarLayout.createSequentialGroup()
+                .addGap(330, 330, 330)
+                .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         jPainelConfirmarLayout.setVerticalGroup(
             jPainelConfirmarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,9 +394,9 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(38, 38, 38)
                 .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -333,10 +409,9 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPainelValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPainelConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPainelValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(8, 8, 8))
         );
@@ -346,15 +421,13 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPainelValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPainelConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPainelConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPainelValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -380,39 +453,12 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonConfirmarClienteActionPerformed
 
-    private void jValorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jValorFocusGained
-        jValor.setText("");
-    }//GEN-LAST:event_jValorFocusGained
-
-    private void jValorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jValorFocusLost
-        jValor.setFocusLostBehavior(JFormattedTextField.COMMIT);
-    }//GEN-LAST:event_jValorFocusLost
-
-    private void jValorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jValorMouseClicked
-        jValor.setText("");
-        jValor.setCaretPosition(0);
-    }//GEN-LAST:event_jValorMouseClicked
-
     private void jButtonConfirmarValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarValorActionPerformed
-        String valor = jValor.getText();
-        valor = valor.replace(',', '.');
-        boolean validade = true;
-        try{
-            setBDvalor(new BigDecimal(valor));
-        }catch(Exception e){
-            validade = false;
-        }
-        if(validade){
-            if(getBDvalor().compareTo(new BigDecimal("0")) > 0){
-                jValor.setEnabled(false);
-                jButtonConfirmarValor.setEnabled(false);
-                jPainelConfirmar.setVisible(true);
-            }else{
-                mensagens.exibeMensagemFracasso();
-            }
-        }else{
-            mensagens.exibeMensagemFracasso();
-        }
+        jQuantidade.setEnabled(false);
+        jButtonConfirmarProduto.setEnabled(false);
+        jButtonConfirmarValor.setEnabled(false);
+        jTableProdutos.setEnabled(false);
+        jPainelConfirmar.setVisible(true);
     }//GEN-LAST:event_jButtonConfirmarValorActionPerformed
 
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
@@ -422,7 +468,7 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
         novoPedido.setCliente(getCliente());
         novoPedido.setDataDeEntrega("Indefinida");
         novoPedido.setEntregador("Indefinido");
-        novoPedido.setValor(getBDvalor().floatValue());
+        novoPedido.setValor(getValorTotal());
         novoPedido.setEstado("Pedido Criado");
         //Inserção do objeto no BD
         PedidoDAO dao = new PedidoDAO();
@@ -435,19 +481,69 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
         }catch (Exception e){
             mensagens.exibeMensagemFracasso("Ocorreu um erro no acesso/modificação");
         }
+        //Modificação na tabela Produtos
+        ProdutoDAO daoProd = new ProdutoDAO();
+        if(getProdutos() != null) for(Produto p : getProdutos()){
+            daoProd.update(p);
+        }
         //Mensagens finais
         mensagens.exibeMensagemSucesso();
         jButton1ActionPerformed(evt);
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
+
+    private void jButtonConfirmarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarProdutoActionPerformed
+        int qtd = 0;
+        String qtdStr = jQuantidade.getText();
+        jQuantidade.setText("");
+        Produto auxProd = getProdutos().get(jTableProdutos.getSelectedRow());
+        float valorUnitario = auxProd.getValorUnitario();
+        int qtdAtualProd = auxProd.getQuantidade();
+        boolean validade = true;
+        try{
+            qtd = Integer.parseInt(qtdStr);
+        }catch (NumberFormatException e){
+            validade = false;
+            mensagens.exibeMensagemFracasso("Formato inválido");
+        }
+        if(validade){
+            if(qtd > qtdAtualProd){
+                validade = false;
+                mensagens.exibeMensagemFracasso("Quantidade nâo disponível em Estoque");
+            }
+        }
+        if(validade){
+            getProdutos().get(jTableProdutos.getSelectedRow()).setQuantidade(qtdAtualProd - qtd);
+            setValorTotal(getValorTotal() + (valorUnitario * qtd));
+            String valor = Float.toString(getValorTotal());
+            lTotal.setText(Valores.retornaStringSaldo(valor));
+            jButtonConfirmarValor.setEnabled(true);
+        }
+        jTableProdutos.removeRowSelectionInterval(jTableProdutos.getSelectedRow(), jTableProdutos.getSelectedRow());
+        jQuantidade.setEnabled(false);
+        jButtonConfirmarProduto.setEnabled(false);
+    }//GEN-LAST:event_jButtonConfirmarProdutoActionPerformed
+
+    private void jTableProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProdutosMouseClicked
+        int index = jTableProdutos.getSelectedRow();
+        if(index != -1){
+            jQuantidade.setEnabled(true);
+            jButtonConfirmarProduto.setEnabled(true);
+        } else {
+            jQuantidade.setEnabled(false);
+            jButtonConfirmarProduto.setEnabled(false);
+        }
+    }//GEN-LAST:event_jTableProdutosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonConfirmar;
     private javax.swing.JButton jButtonConfirmarCliente;
+    private javax.swing.JButton jButtonConfirmarProduto;
     private javax.swing.JButton jButtonConfirmarValor;
     private javax.swing.JComboBox<String> jCliente;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -455,11 +551,14 @@ public class jPainelNovoPedido extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPainelConfirmar;
     private javax.swing.JPanel jPainelValor;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JFormattedTextField jValor;
-    private javax.swing.JLabel lImagem;
+    private javax.swing.JTextField jQuantidade;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableProdutos;
+    private javax.swing.JLabel lTotal;
     // End of variables declaration//GEN-END:variables
 }
