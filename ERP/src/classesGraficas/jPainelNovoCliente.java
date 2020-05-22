@@ -77,10 +77,13 @@ public class jPainelNovoCliente extends javax.swing.JPanel {
         setStrlogin(strlogin);
         setTipoDeConta(tipoDeConta);
         initComponents();
-        lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/CadCliente.png")));
+        try {
+            lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/CadCliente.png")));
+        } catch (Exception e) {
+
+        }
         jPainelEnd.setVisible(false);
         jPainelConf.setVisible(false);
-
     }
 
     @SuppressWarnings("unchecked")

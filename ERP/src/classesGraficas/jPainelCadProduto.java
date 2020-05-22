@@ -42,7 +42,11 @@ public class jPainelCadProduto extends javax.swing.JPanel {
         initComponents();
         jPainelQuantidade.setVisible(false);
         jPainelConfirmar.setVisible(false);
-        lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/NovoProduto.png")));
+        try {
+            lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/NovoProduto.png")));
+        } catch (Exception e) {
+
+        }
     }
 
     @SuppressWarnings("unchecked")

@@ -30,7 +30,11 @@ public class jPainelLogin extends javax.swing.JPanel {
     //Construtor
     public jPainelLogin() {
         initComponents();
-        lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagem.jpg")));
+        try{
+            lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagem.jpg")));
+        }catch (Exception e){
+            
+        }
     }
 
     @SuppressWarnings("unchecked")

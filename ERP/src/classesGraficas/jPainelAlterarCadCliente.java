@@ -77,7 +77,11 @@ public class jPainelAlterarCadCliente extends javax.swing.JPanel {
         if(clientes != null) for(Cliente c : getClientes()){
             jCliente.addItem(c.getCliente());
         }
-        lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/CadCliente.png")));
+        try {
+            lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/CadCliente.png")));
+        } catch (Exception e) {
+
+        }
         jPainelCad.setVisible(false);
     }
     

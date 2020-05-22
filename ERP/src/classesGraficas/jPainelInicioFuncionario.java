@@ -17,7 +17,11 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     public jPainelInicioFuncionario(String strLogin) {
         setstrLogin(strLogin);
         initComponents();
-        lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/InicioFunc.png")));
+        try {
+            lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/InicioFunc.png")));
+        } catch (Exception e) {
+
+        }
         //Verifica se um funcionários é um vendedor
         if(Contas.isVendedor(strLogin)){
             jButtonAgendarEntrega.setEnabled(false);
