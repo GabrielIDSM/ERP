@@ -705,11 +705,17 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonRepDeEstoqueActionPerformed
 
     private void jButtonExcluirPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirPedidosActionPerformed
-        // TODO add your handling code here:
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelExcluirPedido(getLogin(), 1));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonExcluirPedidosActionPerformed
 
     private void jButtonExcluirProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirProdutosActionPerformed
-        // TODO add your handling code here:
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelExcluirProduto(getLogin(), 1));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonExcluirProdutosActionPerformed
 
     private void jButtonGerentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerentesActionPerformed
