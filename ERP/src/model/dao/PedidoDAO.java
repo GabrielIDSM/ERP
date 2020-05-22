@@ -54,6 +54,23 @@ public class PedidoDAO {
         }
     }
     
+    public void remove(Pedido pedido){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        try {
+            //Remover conteúdo no BD
+            stmt = con.prepareStatement("Delete from pedidos where ID = ?");
+            stmt.setInt(1, pedido.getID());
+            stmt.executeUpdate();
+            System.out.println("Foi possível!");
+        } catch (SQLException ex) {
+            Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Não foi possível");
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
     public List<Pedido> read(){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;

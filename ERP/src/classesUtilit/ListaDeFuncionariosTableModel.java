@@ -44,6 +44,8 @@ public class ListaDeFuncionariosTableModel extends AbstractTableModel{
                         return "Vendedor";
                     case 1:
                         return "Entregador";
+                    case 2:
+                        return "Gerente";
                     default:
                         return null;
                 }

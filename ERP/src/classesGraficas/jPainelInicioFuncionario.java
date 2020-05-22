@@ -65,6 +65,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonNovoPedido = new javax.swing.JButton();
         jButtonListaDePedidos = new javax.swing.JButton();
         jButtonMeusPedidos = new javax.swing.JButton();
+        jButtonExcluirPedidos = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lEntregas = new javax.swing.JLabel();
         jButtonAgendarEntrega = new javax.swing.JButton();
@@ -77,6 +78,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonListaDeFunc = new javax.swing.JButton();
         jButtonEntregadores = new javax.swing.JButton();
         jButtonVendedores = new javax.swing.JButton();
+        jButtonGerentes = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         lClientes = new javax.swing.JLabel();
         jButtonCadCliente = new javax.swing.JButton();
@@ -87,6 +89,7 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jButtonInventario = new javax.swing.JButton();
         jButtonCadastrarProduto = new javax.swing.JButton();
         jButtonRepDeEstoque = new javax.swing.JButton();
+        jButtonExcluirProdutos = new javax.swing.JButton();
         lImagem = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(230, 230, 230));
@@ -172,6 +175,16 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             }
         });
 
+        jButtonExcluirPedidos.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonExcluirPedidos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonExcluirPedidos.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonExcluirPedidos.setText("Excluir Pedidos Entregues");
+        jButtonExcluirPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirPedidosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -182,7 +195,8 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                     .addComponent(lPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonNovoPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonListaDePedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                    .addComponent(jButtonMeusPedidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
+                    .addComponent(jButtonMeusPedidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(jButtonExcluirPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -194,6 +208,8 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                 .addComponent(jButtonNovoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonMeusPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonExcluirPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonListaDePedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -326,6 +342,16 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             }
         });
 
+        jButtonGerentes.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonGerentes.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButtonGerentes.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonGerentes.setText("Gerentes");
+        jButtonGerentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGerentesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -336,7 +362,8 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                     .addComponent(lFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                     .addComponent(jButtonListaDeFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonEntregadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonVendedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonVendedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonGerentes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -350,6 +377,8 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                 .addComponent(jButtonEntregadores, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonVendedores, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonGerentes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -455,6 +484,16 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             }
         });
 
+        jButtonExcluirProdutos.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonExcluirProdutos.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButtonExcluirProdutos.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonExcluirProdutos.setText("Excluir Produtos");
+        jButtonExcluirProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirProdutosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -469,7 +508,10 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonCadastrarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonRepDeEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButtonRepDeEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonExcluirProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -483,6 +525,8 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
                 .addComponent(jButtonCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonRepDeEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonExcluirProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -659,6 +703,21 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
         jPainelFuncionario.jPainelPrincipal.repaint();
         jPainelFuncionario.jPainelPrincipal.revalidate();
     }//GEN-LAST:event_jButtonRepDeEstoqueActionPerformed
+
+    private void jButtonExcluirPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirPedidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonExcluirPedidosActionPerformed
+
+    private void jButtonExcluirProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirProdutosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonExcluirProdutosActionPerformed
+
+    private void jButtonGerentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerentesActionPerformed
+        jPainelFuncionario.jPainelPrincipal.removeAll();
+        jPainelFuncionario.jPainelPrincipal.add(new jPainelListaDeFuncionarios(getLogin(), 1, 3));
+        jPainelFuncionario.jPainelPrincipal.repaint();
+        jPainelFuncionario.jPainelPrincipal.revalidate();
+    }//GEN-LAST:event_jButtonGerentesActionPerformed
     
     private void adicionaPainel(){
         jPainelFuncionario.jPainelPrincipal.removeAll();
@@ -674,6 +733,9 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
     private javax.swing.JButton jButtonConfirmarEntrega;
     private javax.swing.JButton jButtonEntregadores;
     private javax.swing.JButton jButtonEntregasAgendadas;
+    private javax.swing.JButton jButtonExcluirPedidos;
+    private javax.swing.JButton jButtonExcluirProdutos;
+    private javax.swing.JButton jButtonGerentes;
     private javax.swing.JButton jButtonInventario;
     private javax.swing.JButton jButtonListaDeClientes;
     private javax.swing.JButton jButtonListaDeFunc;

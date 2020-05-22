@@ -7,7 +7,7 @@ import model.dao.ContaDAO;
 
 public class jPainelListaDeFuncionarios extends javax.swing.JPanel {
     //Atributos
-    int qualLista; //-> 0 = Todos, 1 = Vendedores, 2 = Entregadores
+    int qualLista; //-> 0 = Todos, 1 = Vendedores, 2 = Entregadores, 3 = Gerentes
     
     int tipoDeConta;
     
@@ -58,6 +58,9 @@ public class jPainelListaDeFuncionarios extends javax.swing.JPanel {
                     break;
                 case 2:
                     if(f.getFuncao() == 1) TableModel.addRow(f);
+                    break;
+                case 3:
+                    if(f.getFuncao() == 2) TableModel.addRow(f);
                     break;
                 default:
                     break;
