@@ -6,6 +6,8 @@ create table contas(
     Senha varchar(20) not null
 );
 
+insert into contas (Login, Senha, Funcao) VALUES ("Manager","Manager",2);
+
 create table pedidos(
 	ID int auto_increment primary key,
     Vendedor varchar(20) not null,
