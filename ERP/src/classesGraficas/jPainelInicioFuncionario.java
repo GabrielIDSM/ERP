@@ -30,6 +30,8 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             jButtonMinhasEntregas.setEnabled(false);
             jButtonCadastrarProduto.setEnabled(false);
             jButtonRepDeEstoque.setEnabled(false);
+            jButtonExcluirProdutos.setEnabled(false);
+            jButtonExcluirPedidos.setEnabled(false);
             lDataLogin.setText("Bem-vindo, " + strLogin + " - Vendedor - " + Datas.retornaStringDataAtual());
         }else if (Contas.isEntregador(strLogin)){
             jButtonNovoPedido.setEnabled(false);
@@ -38,6 +40,8 @@ public class jPainelInicioFuncionario extends javax.swing.JPanel {
             jButtonMeusPedidos.setEnabled(false);
             jButtonCadastrarProduto.setEnabled(false);
             jButtonRepDeEstoque.setEnabled(false);
+            jButtonExcluirProdutos.setEnabled(false);
+            jButtonExcluirPedidos.setEnabled(false);
             lDataLogin.setText("Bem-vindo, " + strLogin + " - Entregador - " + Datas.retornaStringDataAtual());
         }else {
             jButtonAgendarEntrega.setEnabled(false);
