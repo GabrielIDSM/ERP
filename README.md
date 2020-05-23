@@ -2,7 +2,7 @@
 
 ![Screenshot Principal](https://github.com/GabrielIDSM/ERP/blob/master/Imagens/ScreenshotPrincipal.png)
 
-## Instruções para configuração do Bando de Dados
+## Instruções para configuração do Banco de Dados
 
 Para executar a aplicação em sua máquina é necessário configurar o servidor e alterar algumas linhas de código.
 
