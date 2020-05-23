@@ -41,13 +41,13 @@ Um vendedor é um funcionário responsável por criar novos pedidos. Um vendedor
 É responsabilidade de um entregador atribuir uma data de entrega para determinado produto. É possível modificar a data de entrega.
 
 #### Entregadores
-Um entregador é responsável por fazer a entrega de um pedido para o cliente. Um entregador pode atribuir ou modificar a data de entrega de um pedido. Além disso, um entregador é responsável por **confirmar se um pedido foi entregue**
+Um entregador é responsável por fazer a entrega de um pedido para o cliente. Um entregador pode atribuir ou modificar a data de entrega de um pedido. Além disso, um entregador é responsável por **confirmar se um pedido foi entregue**.
 
 ### Clientes
 Para que um pedido seja feito, é necessário que o cliente que fez o pedido esteja cadastrado. O cadastro do cliente possui informações como **Nome do cliente, pedidos já feitos e Endereço**. Apenas **vendedores podem cadastrar novos clientes e alterar seus cadastros**.
 
 ### Produtos e Gerentes
-Um produto é o elemento que compõe o **Inventário da empresa**. Um produto tem um identificador único (Assim como os pedidos), seu ID. Apenas **gerentes podem cadastrar, exluir ou repôr produtos no estoque**
+Um produto é o elemento que compõe o **Inventário da empresa**. Um produto tem um identificador único (Assim como os pedidos), seu ID. Apenas **gerentes podem cadastrar, exluir ou repôr produtos no estoque**.
 
 ## Colaboradores e contato
 O Projeto é pessoal, feito por Gabriel Inácio ([Github](https://github.com/GabrielIDSM)/[LinkedIn](https://www.linkedin.com/in/gabriel-inacio-uff/)).
