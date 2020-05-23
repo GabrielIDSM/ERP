@@ -23,3 +23,37 @@ Linha 10 | Defina o valor da variável para o PASS do USER (Ex: "12345";)
 É importante se certificar que você tem acesso e permissão para modificar o banco de dados no servidor.
 
 ## Funcionalidades
+
+Esse software tem por objetivo integrar os sistemas de Supply chain, Criação de Pedidos, Gerenciamento de Clientes e Sistema de Entregas de uma empresa. 
+
+### Pedidos e Vendedores
+Um Pedido é um registro que contém informações sobre um encomenda feita para a empresa. Cada pedido possui um identificador único, seu ID. **Apenas funcionários** podem fazer novos pedidos.
+
+#### Novo Pedido
+Para fazer um novo pedido é necessário ter um **cliente já cadastrado**. O orçamento do pedido é feito automaticamente e só é possível fazer um orçamento com **produtos cadastrados com estoque**. 
+
+Após um pedido ser criado, é responsabilidade de um **entregador** atribuir uma data de entrega para o pedido. O número de unidades disponível em estoque é **automaticamente atualizado**, assim como o número de pedidos feitos pelo cliente.
+
+#### Vendedores
+Um vendedor é um funcionário responsável por criar novos pedidos. Um vendedor nâo pode atribuir uma data de entrega para um pedido ou **modificar um pedido**.
+
+### Sistema de Entregas e Entregadores
+É responsabilidade de um entregador atribuir uma data de entrega para determinado produto. É possível modificar a data de entrega.
+
+#### Entregadores
+Um entregador é responsável por fazer a entrega de um pedido para o cliente. Um entregador pode atribuir ou modificar a data de entrega de um pedido. Além disso, um entregador é responsável por **confirmar se um pedido foi entregue**
+
+### Clientes
+Para que um pedido seja feito, é necessário que o cliente que fez o pedido esteja cadastrado. O cadastro do cliente possui informações como **Nome do cliente, pedidos já feitos e Endereço**. Apenas **vendedores podem cadastrar novos clientes e alterar seus cadastros**.
+
+### Produtos e Gerentes
+Um produto é o elemento que compõe o **Inventário da empresa**. Um produto tem um identificador único (Assim como os pedidos), seu ID. Apenas **gerentes podem cadastrar, exluir ou repôr produtos no estoque**
+
+## Colaboradores e contato
+O Projeto é pessoal, feito por Gabriel Inácio ([Github](https://github.com/GabrielIDSM)/[LinkedIn](https://www.linkedin.com/in/gabriel-inacio-uff/)).
+
+E-mail: gabrielinacio@id.uff.br
+
+
+
+
